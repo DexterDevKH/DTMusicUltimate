@@ -26,7 +26,7 @@ concurrency:
 
 jobs:
   build:
-    name: Build YTMusicUltimate
+    name: Build DTMusicUltimate
     runs-on: macos-latest
     permissions:
       contents: write
@@ -109,14 +109,14 @@ jobs:
           mv packages/*.deb ../ytmult.deb
 
       - name: Inject tweak into provided IPA
-        run: cyan -i ytm.ipa -o YTMusicUltimate_${{ env.YTM_VERSION }}.ipa -uwsf ytmult.deb -n "${{ inputs.display_name }}" -b ${{ inputs.bundle_id }} 
+        run: cyan -i ytm.ipa -o DTMusicUltimate_${{ env.YTM_VERSION }}.ipa -uwsf ytmult.deb -n "${{ inputs.display_name }}" -b ${{ inputs.bundle_id }} 
 
       - name: Create Release
         uses: softprops/action-gh-release@v3
         with:
           tag_name: ytpm-${{ env.YTM_VERSION }}
-          name: YTMusicUltimate ${{ env.YTM_VERSION }}
-          files: YTMusicUltimate_${{ env.YTM_VERSION }}.ipa
+          name: DTMusicUltimate ${{ env.YTM_VERSION }}
+          files: DTMusicUltimate_${{ env.YTM_VERSION }}.ipa
 
       - name: Output Release URL
         run: |
