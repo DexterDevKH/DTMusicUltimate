@@ -10,7 +10,7 @@ on:
 
       display_name:
         description: "App Name (Optional)"
-        default: "YouTube Music"
+        default: "DexTube Music"
         required: true
         type: string
 
